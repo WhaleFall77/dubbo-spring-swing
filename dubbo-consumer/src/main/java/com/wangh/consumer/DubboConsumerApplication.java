@@ -1,6 +1,7 @@
 package com.wangh.consumer;
 
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
+import com.wangh.consumer.frame.MouseEventTest;
 import com.wangh.consumer.frame.WanghDragFrame;
 import javax.swing.SwingUtilities;
 import org.jfree.ui.RefineryUtilities;
@@ -29,10 +30,13 @@ public class DubboConsumerApplication {
     }
 
     private static void createAndShowGUI() {
-        WanghDragFrame mouselistenerdemo2 = new WanghDragFrame("曲线拖拽demo");
-        mouselistenerdemo2.pack();
-        RefineryUtilities.centerFrameOnScreen(mouselistenerdemo2);
-        mouselistenerdemo2.setVisible(true);
+
+        MouseEventTest test = new MouseEventTest();
+
+//        WanghDragFrame mouselistenerdemo2 = new WanghDragFrame("曲线拖拽demo");
+//        mouselistenerdemo2.pack();
+//        RefineryUtilities.centerFrameOnScreen(mouselistenerdemo2);
+//        mouselistenerdemo2.setVisible(true);
     }
 
 }

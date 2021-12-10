@@ -1,5 +1,7 @@
 package com.xiaoze.api.service;
 
+import java.net.UnknownHostException;
+
 /**
  * DemoService
  * 服务Api接口类
@@ -8,6 +10,6 @@ package com.xiaoze.api.service;
  */
 public interface DemoService {
 
-    String sayHello(String name);
+    String sayHello() throws UnknownHostException;
 
 }

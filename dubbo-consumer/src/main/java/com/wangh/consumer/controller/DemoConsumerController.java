@@ -2,15 +2,16 @@ package com.wangh.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.xiaoze.api.service.DemoService;
+import java.net.UnknownHostException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * DemoConsumerController
- * 消费者控制层
- * @author xiaoze
- * @date 2018/6/7
+ * 页面调用dubbo
+ * @author wangh
+ * @date 2021/12/10
  */
 @RestController
 public class DemoConsumerController {
@@ -21,8 +22,8 @@ public class DemoConsumerController {
     private DemoService demoService;
 
     @RequestMapping("/sayHello/{name}")
-    public String sayHello(@PathVariable("name") String name) {
-        return demoService.sayHello(name);
+    public String sayHello(@PathVariable("name") String name) throws UnknownHostException {
+        return demoService.sayHello();
     }
 
 }

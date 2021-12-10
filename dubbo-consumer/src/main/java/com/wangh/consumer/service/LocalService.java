@@ -5,6 +5,7 @@ package com.wangh.consumer.service;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.xiaoze.api.service.DemoService;
+import java.net.UnknownHostException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,8 +22,8 @@ public class LocalService {
     private DemoService demoService;
 
 
-    public String saySomething() {
-        return demoService.sayHello("by wangh");
+    public String saySomething() throws UnknownHostException {
+        return demoService.sayHello();
     }
 
 }

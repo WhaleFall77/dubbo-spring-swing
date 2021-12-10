@@ -16,6 +16,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.math.BigDecimal;
+import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartMouseEvent;
 import org.jfree.chart.ChartMouseListener;
@@ -40,7 +41,7 @@ import org.jfree.ui.RectangleEdge;
  * @Author: wanghao@tsintergy.com
  * @Date: 2021/12/8 13:38
  */
-public class WanghDragFrame extends ApplicationFrame implements ChartMouseListener, MouseListener,
+public class WanghDragFrame extends JFrame  implements ChartMouseListener, MouseListener,
     MouseMotionListener {
 
     private LocalService localService = (LocalService) ApplicationContextHelper.getBean("localService");
@@ -74,7 +75,9 @@ public class WanghDragFrame extends ApplicationFrame implements ChartMouseListen
         chartPanel.addChartMouseListener(this);
         chartPanel.addMouseListener(this);
         chartPanel.addMouseMotionListener(this);
-        chartPanel.setPreferredSize(new Dimension(500, 270));
+        chartPanel.setPreferredSize(new Dimension(1500, 600));
+        //只关闭当前页面
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(chartPanel);
     }
 
@@ -89,11 +92,6 @@ public class WanghDragFrame extends ApplicationFrame implements ChartMouseListen
      */
     @Override
     public void chartMouseClicked(ChartMouseEvent chartmouseevent) {
-        //双击调用接口
-        if (chartmouseevent.getTrigger().getClickCount() == 2) {
-            System.out.println(this.localService.saySomething());
-        }
-
         if (chartmouseevent.getEntity() != null) {
             if (chartmouseevent.getEntity() instanceof XYItemEntity) {
                 xyItemEntity = (XYItemEntity) chartmouseevent.getEntity();
@@ -106,7 +104,6 @@ public class WanghDragFrame extends ApplicationFrame implements ChartMouseListen
                 }
                 xyLineAndShapeRenderer.setSeriesShapesVisible(seriesIndex, true); // 数据点可见
 
-                System.out.println("Mouse clicked: " + xyItemEntity.toString());
             }
         } else {
             System.out.println("Mouse clicked: null entity.");
