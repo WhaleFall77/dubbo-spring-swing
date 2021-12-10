@@ -1,4 +1,4 @@
-package com.xiaoze.consumer.controller;
+package com.wangh.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.xiaoze.api.service.DemoService;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoConsumerController {
 
+    //dubbo直连时后面加上url
+//    @Reference(version = "${demo.service.version}",url = "127.0.0.1:20880")
     @Reference(version = "${demo.service.version}")
     private DemoService demoService;
 

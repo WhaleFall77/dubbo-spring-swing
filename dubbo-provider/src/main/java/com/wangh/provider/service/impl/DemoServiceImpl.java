@@ -1,4 +1,4 @@
-package com.xiaoze.provider.service.impl;
+package com.wangh.provider.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.xiaoze.api.service.DemoService;

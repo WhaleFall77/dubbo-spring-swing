@@ -1,4 +1,4 @@
-package com.xiaoze.provider;
+package com.wangh.provider;
 
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
