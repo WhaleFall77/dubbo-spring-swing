@@ -6,6 +6,7 @@ package com.wangh.consumer.service;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.xiaoze.api.service.DemoService;
 import java.net.UnknownHostException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,7 +19,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class LocalService {
 
-    @Reference(version = "${demo.service.version}",url = "127.0.0.1:20880")
+    @Value("remote.ip")
+    String remoteIp;
+
+    @Reference(version = "${demo.service.version}",url = "${remote.ip}")
     private DemoService demoService;
 
 

@@ -16,13 +16,17 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import org.jfree.ui.RefineryUtilities;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
+ *
  */
 public class MouseEventTest extends JFrame {
 
     private LocalService localService = (LocalService) ApplicationContextHelper.getBean("localService");
 
+    @Value("remote.ip")
+    private String remoteUrl;
 
     public MouseEventTest() {
         // 设置close按钮的操作（关闭窗口并停止程序运行）
@@ -88,15 +92,15 @@ public class MouseEventTest extends JFrame {
                     s = localService.saySomething();
                 } catch (Exception exception) {
                     exception.printStackTrace();
-                    txtArea.append("通信异常！异常信息为："+exception+"\n");
+                    txtArea.append("通信异常！远端服务未启动或网段不通。\n" + "异常信息：" + exception + "\n" + "远端ip：" + remoteUrl+ "\n");
                 }
                 InetAddress ip4 = null;
                 try {
                     ip4 = Inet4Address.getLocalHost();
                 } catch (UnknownHostException unknownHostException) {
-                    txtArea.append("获取本地ip异常"+"\n");
+                    txtArea.append("获取本地ip异常" + "\n");
                 }
-                txtArea.append(s+"\n"+"本机ip："+ip4.getHostAddress()+"\n");
+                txtArea.append(s + "\n" + "本机ip：" + ip4.getHostAddress() + "\n");
             }
 
             @Override
