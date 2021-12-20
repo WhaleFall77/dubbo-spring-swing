@@ -19,13 +19,15 @@ public class DataSource {
 
         XYSeries localTimeSeries1 = new XYSeries("示例曲线1", false, false);
         for (int i = 1; i < 97; i++) {
-            int temp = (int)(Math.random()*100);
+            int temp = (int) (Math.random() * 100);
             localTimeSeries1.add(i, temp);
         }
 
+        System.out.println("12343");
+
         XYSeries localTimeSeries2 = new XYSeries("示例曲线2", false, false);
         for (int i = 1; i < 97; i++) {
-            int temp = (int)(Math.random()*100);
+            int temp = (int) (Math.random() * 100);
             localTimeSeries2.add(i, temp);
         }
 
@@ -36,9 +38,7 @@ public class DataSource {
         return localTimeSeriesCollection;
 
 
-
     }
-
 
 
 }
