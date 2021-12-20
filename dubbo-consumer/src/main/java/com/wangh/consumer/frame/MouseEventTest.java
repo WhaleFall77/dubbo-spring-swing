@@ -80,10 +80,13 @@ public class MouseEventTest extends JFrame {
         JScrollPane sp = new JScrollPane(txtArea);
         sp.setBounds(360, 0, 400, 300);
 
+        System.out.println("test");
+
         // “发送dubbo请求”的按钮
         JButton report = new JButton("发送dubbo请求");
         report.setBounds(90, 165, 200, 30);
         report.addMouseListener(new MouseListener() {
+
 
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -92,7 +95,7 @@ public class MouseEventTest extends JFrame {
                     s = localService.saySomething();
                 } catch (Exception exception) {
                     exception.printStackTrace();
-                    txtArea.append("通信异常！远端服务未启动或网段不通。\n" + "异常信息：" + exception + "\n" + "远端ip：" + remoteUrl+ "\n");
+                    txtArea.append("通信异常！远端服务未启动或网段不通。\n" + "异常信息：" + exception + "\n" + "远端ip：" + remoteUrl + "\n");
                 }
                 InetAddress ip4 = null;
                 try {
